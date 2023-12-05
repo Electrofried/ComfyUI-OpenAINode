@@ -11,7 +11,10 @@ I just wanted to feed basic prompts through a local hosted LLM. Nothing I could 
 
 Load up your LLM of choice, with your model of choice, in your launcher of choice (Ooba, LLM studio and many more support this). Plop down the node, enter the URL in the node and alter the prefix, suffix and any stop token your model uses. Job done.
 I am working on a small 7B model on huggingface I have dubbed [promptmaster-mistral7b](https://huggingface.co/Electrofried/Promptmaster-mistral-7b) that is fine tuned with the default perameters to output stable diffusion style prompts. It is very WIP right now and while it 'works' I would not call it 'good', more refinment to come. 
+
 It is however fun to use and when it does work it works really well to convert basic input like "a photo of a woman in a cyberpunk world" into "photorealistic, the portrait of a female sitting with cyberpunk clothes, gray bun, REDACTED, wide hips, dark REDACTED hair, focus on her REDACTED, cab, CamoGoal girl bridge with light, crowded outside city leaves, (cyberpunk-themed), dark atmosphere, deep shadow, dimly lit, dark studio, low key, urban decay, neon light, deep contrast, moody, film noir aesthetic, cyber goth, cyberpunk edgerunners"
+
+
 Oh, I should also mention, that model... See those "REDACTED"... yea, it has been trained on all kinds of prompts so expect NSFW output to randomly pop up. You have been warned.
 
 ### Dependencies
