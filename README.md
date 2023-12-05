@@ -42,3 +42,5 @@ pip -r install requirments.txt
 ## Help
 
 The seed input is there to allow a random seed to be input, this does not actually do anything to the seed. create a new primitive node and connect it to the seed then randomise each run. This will cause ComfyUI re re-prompt the LLM each time you run generation if you want to vary your prompt a bit. If you leave it set, then comfyUI will cache the results and use the same prompt each time it runs till you change the input.
+
+A note on running this locally. Please take in to account running something like an LLM and stable diffusion at the same time on the same machine is going to be taxing. You will make your GPU cry if you try do this. Instead consider loading the LLM to RAM (if you have enough) and running inference via CPU then allowing stable diffusion to use the full GPU. Or, better yet hijack andother computer in your home and host the LLM inference there, then connect to it remotly as I do. Please do not raise an issue that you run out of memory when using this node or you will make the AI gods cry.
