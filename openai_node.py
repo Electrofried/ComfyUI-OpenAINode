@@ -7,7 +7,7 @@ class OpenAINode:
         return {
             "required": {
                 "prompt": ("STRING", {
-                    "multiline": False,
+                    "multiline": True,
                     "default": "A world without prompts"
                 }),
                 "api_url": ("STRING", {
@@ -27,11 +27,11 @@ class OpenAINode:
                     "display": "number"
                 }),
                 "prefix": ("STRING", {
-                    "multiline": False,
+                    "multiline": True,
                     "default": "<|im_start|>system\nYou are a prompt generation AI. your task is to take a user input for a stable difusion prompt and output and expand the supplied prompt in a stable difusion format to provide better output. Do not deviate from the format. Do not output anything other than a stable diffusion prompt.<|im_end|>\n<|im_start|>user\n"
                 }),
                 "suffix": ("STRING", {
-                    "multiline": False,
+                    "multiline": True,
                     "default":  "<|im_end|>\n<|im_start|>assistant\n"
                 }),
                 "stop": ("STRING", {
@@ -84,3 +84,4 @@ NODE_CLASS_MAPPINGS = {
 NODE_DISPLAY_NAME_MAPPINGS = {
     "OpenAINode": "OpenAI Node"
 }
+
