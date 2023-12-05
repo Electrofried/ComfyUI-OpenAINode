@@ -14,8 +14,14 @@ I am working on a small 7B model on huggingface I have dubbed [promptmaster-mist
 
 It is however fun to use and when it does work it works really well to convert basic input like "a photo of a woman in a cyberpunk world" into "photorealistic, the portrait of a female sitting with cyberpunk clothes, gray bun, REDACTED, wide hips, dark REDACTED hair, focus on her REDACTED, cab, CamoGoal girl bridge with light, crowded outside city leaves, (cyberpunk-themed), dark atmosphere, deep shadow, dimly lit, dark studio, low key, urban decay, neon light, deep contrast, moody, film noir aesthetic, cyber goth, cyberpunk edgerunners"
 
+![workflow](https://github.com/Electrofried/ComfyUI-OpenAINode/assets/27886155/58df1e7b-4259-42f5-815d-df88be812695)
 
-Oh, I should also mention, that model... See those "REDACTED"... yea, it has been trained on all kinds of prompts so expect NSFW output to randomly pop up. You have been warned.
+
+## WARNING WARNING WARNING!!!! WARNING WARNING WARNING!!!!  WARNING WARNING WARNING!!!!
+
+The model I listed above is like a thirsty kid from 4chan who forgot to take their meds. I am not joking when I say it can and will add random totally NSFW/NSFL combinations of things to your prompt. Take care who/where/how you use this. I am not responsible if the LLM hijacks your prompt for "a baby panda" in the middle of a discord stream and you get a picture of "a panda with breasts sitting on a bamboo spike"... or worse.
+
+## WARNING WARNING WARNING!!!! WARNING WARNING WARNING!!!!  WARNING WARNING WARNING!!!!
 
 ### Dependencies
 
