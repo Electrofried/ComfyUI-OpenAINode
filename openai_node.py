@@ -10,9 +10,9 @@ class OpenAINode:
                     "multiline": False,
                     "default": "A world without prompts"
                 }),
-                "api_base": ("STRING", {
+                "api_url": ("STRING", {
                     "multiline": False,
-                    "default": "http://192.168.1.65:5000/v1"
+                    "default": "http://127.0.0.1:5000/v1"
                 }),
                 "api_key": ("STRING", {
                     "multiline": False,
@@ -51,9 +51,9 @@ class OpenAINode:
 
     CATEGORY = "OpenAIapi"
 
-    def get_completion(self, prompt, api_base, api_key, temperature, prefix, suffix, stop, seed, model="local model"):
+    def get_completion(self, prompt, api_url, api_key, temperature, prefix, suffix, stop, seed, model="local model"):
         try:
-            openai.api_base = api_base
+            openai.api_base = api_url
             openai.api_key = api_key
 
             formatted_prompt = f"{prefix}{prompt}{suffix}"
