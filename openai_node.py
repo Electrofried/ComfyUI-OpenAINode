@@ -26,20 +26,23 @@ class OpenAINode:
                     "round": 0.01,
                     "display": "number"
                 }),
-                "prefix": ("STRING", {
+                "sys_prefix": ("STRING", {
                     "multiline": True,
-                    "default": "<|im_start|>system\nYou are a prompt generation AI. your task is to take a user input for a stable difusion prompt and output and expand the supplied prompt in a stable difusion format to provide better output. Do not deviate from the format. Do not output anything other than a stable diffusion prompt.<|im_end|>\n<|im_start|>user\n"
+                    "default": "You are a prompt generation AI. your task is to take a user input for a stable difusion prompt and output and expand the supplied prompt in a stable difusion format to provide better output. Do not deviate from the format. Do not output anything other than a stable diffusion prompt."
                 }),
-                "suffix": ("STRING", {
-                    "multiline": True,
-                    "default":  "<|im_end|>\n<|im_start|>assistant\n"
-                }),
-                "stop": ("STRING", {
+                "stop_token": ("STRING", {
                     "multiline": False,
                     "default": "<|im_end|>"
                 }),
+                "max_tokens": ("INT", {
+                        "default": 250,
+                        "min": -1, 
+                        "max": 2048,
+                        "display": "number"
+                }),
                 "seed": ("INT", {
-                        "default": 0, "min": 0, 
+                        "default": 0,
+                        "min": 0, 
                         "max": 0xffffffffffffffff
                 })
             }
@@ -51,20 +54,20 @@ class OpenAINode:
 
     CATEGORY = "OpenAIapi"
 
-    def get_completion(self, prompt, api_url, api_key, temperature, prefix, suffix, stop, seed, model="local model"):
+    def get_completion(self, prompt, api_url, api_key, temperature, sys_prefix, stop_token, max_tokens, seed, model="local model"):
         try:
             openai.api_base = api_url
             openai.api_key = api_key
 
-            formatted_prompt = f"{prefix}{prompt}{suffix}"
-            messages = [{"role": "user", "content": formatted_prompt}]
+            
+            messages = [{"role": "system", "content": sys_prefix},{"role": "user", "content": prompt}]
             
             response = openai.ChatCompletion.create(
                 model=model,
                 messages=messages,
                 temperature=temperature,
-                stop=stop,
-                early_stopping=True
+                max_tokens=max_tokens,
+                stop=stop_token,
             )
 
             return (response.choices[0].message["content"],)
